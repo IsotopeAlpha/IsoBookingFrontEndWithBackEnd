@@ -1,5 +1,5 @@
 import express from "express";
-import { createHotel, deleteHotel, getCountByType, getCountByCity, getHotel, getHotels, updateHotel, getHotelRooms } from "../controllers/hotel.js";
+import { createHotel, deleteHotel, getCountByType, getCountByCity, getHotel, getHotels, updateHotel, getHotelRooms, getHostelByName } from "../controllers/hotel.js";
 import { verifyAdmin } from "../utils/verfyToken.js";
 
 const router = express.Router();
@@ -16,5 +16,6 @@ router.get("/", getHotels);
 router.get("/countByCity", getCountByCity);
 router.get("/countByType", getCountByType);
 router.get("/room/:id", getHotelRooms);
+router.get("/name/:name", getHostelByName)
 
 export default router;

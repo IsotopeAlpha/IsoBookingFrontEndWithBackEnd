@@ -24,25 +24,25 @@ const Reserve = ({setOpen, hotelId}) =>{
 
     }
 
-    // const getDatesInRange = (startDate, endDate) =>{
-    //     const start = new Date(startDate);
-    //     const end = new Date(endDate);
-    //     const date  = new Date(start.getTime());
-    //     let list = [];
-    //     while(data<=end){
-    //         list.push(new Date(date).getTime())
-    //         date.setDate(date.getDate()+1);
-    //     }
-    //     return list;
-    // }
+    const getDatesInRange = (startDate, endDate) =>{
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+        const date  = new Date(start.getTime());
+        let list = [];
+        while(date<=end){
+            list.push(new Date(date).getTime())
+            date.setDate(date.getDate()+1);
+        }
+        return list;
+    }
 
-    // const allDates = getDatesInRange(dates[0].endDate, dates[0].startDate);
-    const isAvailable  =  [];
-    // const isAvailable = (roomNumber)=>{
-    //     const isFound = roomNumber.unavailableDates.some(date=>allDates.includes(new Date(date).getTime())
-    //        );
-    //        return !isFound;
-    // }
+     const allDates = getDatesInRange(dates[0].endDate, dates[0].startDate);
+    // const isAvailable  =  [];
+    const isAvailable = (roomNumber)=>{
+        const isFound = roomNumber.unavailableDates.some(date=>allDates.includes(new Date(date).getTime())
+           );
+           return !isFound;
+    }
 
     const navigate  = useNavigate();
     const handleResrve = async() => {

@@ -24,7 +24,7 @@ const Hotel = () =>{
     const [open, setOpen] = useState(false);
     const [openModal, setOpenModal] = useState(false);
 
-    const {data, loading, error} = useFetch(`http://localhost:8000/api/hotels/find/${id}`);
+    const {data, loading} = useFetch(`http://localhost:8000/api/hotels/find/${id}`);
 
     const {dates, options} = useContext(SearchContext)
     
@@ -44,7 +44,7 @@ const Hotel = () =>{
     const handleMove = (direction) =>{
         let newSlideNumber;
 
-        if(direction=="l"){
+        if(direction==="l"){
             newSlideNumber = slideIndex===0?5:slideIndex-1
         }else{
             newSlideNumber = slideIndex===5?0:slideIndex+1

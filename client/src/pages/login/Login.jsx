@@ -1,9 +1,10 @@
 import axios from "axios";
 import "../login/login.css";
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
-
+import backG from '../../images/back.jpeg'
+import { Link } from "react-router-dom";
 
 const Login=()=>{
     const [username, setUsername] = useState(undefined)
@@ -30,10 +31,9 @@ const Login=()=>{
 
         await axios.post("http://localhost:8000/api/auth/login", data).then((res) => {
             setLoading(false)
-            
             if(res.status === 200){
-           
-            localStorage.setItem("user", JSON.stringify(res.data));
+                console.log(res.data)
+            localStorage.setItem("user", JSON.stringify(res.data.details));
                return navigate('/home')
             }
             else{
@@ -56,7 +56,7 @@ const Login=()=>{
     }
 
     return(
-        <div style={{display: "flex", backgroundColor:"gray", flexDirection: "column", justifyContent: "center", alignitems: "center", height: "100vh"}}>
+        <div style={{backgroundImage: `url(${backG})`,display: "flex", flexDirection: "column", justifyContent: "center", alignitems: "center", height: "100vh",  backgroundSize: "cover"}}>
             <div className="loginContainer">
             <h2>Login</h2>
             <form className="loginForm" onSubmit={handleLogin}>
@@ -70,6 +70,9 @@ const Login=()=>{
                 </div>
                 <button type="submit" disabled={loading}>{loading ? 'Loading...' : 'Login'}</button>
             </form>
+            <Link to="/sign" className="sign">
+                Sign Up
+            </Link>
         </div>
         </div>
         

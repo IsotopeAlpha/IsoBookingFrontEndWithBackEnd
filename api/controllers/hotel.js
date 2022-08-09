@@ -55,7 +55,7 @@ export const getCountByCity = async (req, res,next)=>{
         const list = await Promise.all(cities.map(city=>{
             return Hotel.countDocuments({city:city})
         }));
-        res.status(200).json(list);
+        res.status(200).json(list);ysc
     }catch(err){
         next(err);
     }
@@ -68,6 +68,15 @@ export const getCountByType = async (req, res,next)=>{
         }));
         res.status(200).json(list);
     }catch(err){
+        next(err);
+    }
+}
+export const getHostelByName = async(req, res, next)=>{
+    try{
+        const foundHotel = await  Hotel.find({name: {$regex:'/hotel/'}}).limit(5);
+        res.status(200).json(foundHotel); 
+    }catch(err){
+
         next(err);
     }
 }

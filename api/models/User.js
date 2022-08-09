@@ -11,6 +11,24 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    country:{
+        type: String,
+        required: true
+    },
+    imageUrl:{
+        type: String,
+    },
+    imageId: {
+        type: String
+    },
+    city:{
+        type: String,
+        required: true
+    },
+    phone:{
+        type: String,
+        required: true
+    },
     password:{
         type: String,
         required: true
