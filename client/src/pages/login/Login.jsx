@@ -34,17 +34,23 @@ const Login=()=>{
             if(res.status === 200){
                 console.log(res.data)
             localStorage.setItem("user", JSON.stringify(res.data.details));
+            Swal.fire(
+                'Login',
+                res.data.msg,
+                'success'
+            )
                return navigate('/home')
             }
             else{
                Swal.fire(
                    'Login',
-                   res.data.message,
+                   res.msg,
                    'error'
                )
             }
         }).catch(err => {
             setLoading(false)
+            console.log(err)
             Swal.fire(
                 'Login',
                 "Opps something went wrong",

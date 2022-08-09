@@ -4,7 +4,7 @@ import useFetch from "../../hooks/useFetch";
 
 const PropertyList = () =>{
 
-    const {data, loading, error} = useFetch("http://localhost:8000/api/hotels/countByType?types=hotel,villa,cabin,resort,apartment");
+    const {data, loading} = useFetch("http://localhost:8000/api/hotels/countByType?types=hotel,villa,cabin,resort,apartment");
     
     return(
         <div className="pList">

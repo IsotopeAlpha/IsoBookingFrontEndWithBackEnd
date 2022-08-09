@@ -5,7 +5,7 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
 
-export default function Sign_Up() {
+export default function SignUp() {
     const [username, setUsername] = useState(undefined)
     const [password, setPassword] = useState(undefined)
     const [email, setEmail] = useState(undefined)
@@ -13,7 +13,6 @@ export default function Sign_Up() {
     const [phone, setPhone] = useState(undefined)
     const [country, setCountry] = useState(undefined)
     const [image, setImage] = useState();
-    const [imageUrl, setImageUrl] = useState('');
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate();
 
@@ -31,32 +30,6 @@ export default function Sign_Up() {
         previewFile(file)
     }
 
-//     const ImageUpload = async (file, req, res) => {
-        
-//         try {
-//             const image = req?.files?.image;
-//             if (image) {
-//             //save to cloudinary
-//             await cloudinary.uploader.upload(
-//                 previewFile,
-//                 async (err, result) => {
-//                   if (err) {
-//                   console.log("Error occurred while uploading file");
-//                   } else {
-//                    //get saved image url
-//                     const imageLink = result.secure_url;
-//                     imageUrl =  setImageUrl( imageLink);
-//                   }} );
-//             }}
-//         catch(error){
-//             Swal.fire(
-//                 'Profile Image',
-//                 'Couldn\'t Upload profile image', 
-//                 'error'
-//             )
-//         }
-// }
-        
 
     const handleSign = async() =>{
         setLoading(true)
@@ -74,6 +47,11 @@ export default function Sign_Up() {
             setLoading(false)
             if(res.status === 200){
                 console.log(res.data)
+                Swal.fire(
+                    'Sign Up',
+                    res.data.msg,
+                    'success'
+                )
                return navigate('/')
             }
             else{

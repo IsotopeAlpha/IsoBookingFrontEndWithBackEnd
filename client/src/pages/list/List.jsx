@@ -14,17 +14,12 @@ const List = () =>{
     const [destination, setDestination] = useState(location.state.destination);
     const [dates, setDates] = useState(location.state.dates);
     const [openDate, setOpenDate] = useState(false); 
-    const [options, setOptions] = useState(location.state.options);
+    const [options] = useState(location.state.options);
     const [min, setMin] = useState(undefined);
     const [max, setMax] = useState(undefined);
 
-    // const handleOption = (name, operation)=>{
-    //     setOptions(prev=>{return{
-    //         ...prev, [name]: operation === "i" ? options[name] +1 : options[name] -1
-    //     }})
-    // }
 
-    const {data, loading, error, reFetch} = useFetch(`http://localhost:8000/api/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`);
+    const {data, loading, reFetch} = useFetch(`http://localhost:8000/api/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`);
     const handleClick = () =>{ 
         reFetch();
     }

@@ -12,7 +12,7 @@ import Swal from "sweetalert2";
 
 const Reserve = ({setOpen, hotelId}) =>{
     const [selectedRooms, setSelectedRooms] = useState([]);
-    const {data, loading, error} = useFetch(`http://localhost:8000/api/hotels/room/${hotelId}`);
+    const {data} = useFetch(`http://localhost:8000/api/hotels/room/${hotelId}`);
     const {dates} = useContext(SearchContext)
     
     const handleSelect = (e) =>{

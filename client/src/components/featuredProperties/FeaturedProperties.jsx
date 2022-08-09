@@ -3,7 +3,7 @@ import pic from "../../images/vibe.jpg";
 import useFetch from '../../hooks/useFetch.js';
 
 const FeaturedProperties = () =>{
-    const {data, loading, error} = useFetch("http://localhost:8000/api/hotels?featured=true&limit=4");
+    const {data, loading} = useFetch("http://localhost:8000/api/hotels?featured=true&limit=4");
     return(
         <div className="fp">
             {loading?"Loading Featured Properties...":<>{data.map(item=>(
