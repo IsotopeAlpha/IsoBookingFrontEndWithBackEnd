@@ -73,7 +73,7 @@ export const getCountByType = async (req, res,next)=>{
 }
 export const getHostelByName = async(req, res, next)=>{
     try{
-        const foundHotel = await  Hotel.find({name: {$regex:'/hotel/'}}).limit(5);
+        const foundHotel = await  Hotel.find({name: {$regex:'/'+req.params.name+'/'}}).limit(5);
         res.status(200).json(foundHotel); 
     }catch(err){
 

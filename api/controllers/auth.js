@@ -1,7 +1,6 @@
 import User from "../models/User.js"
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { createError } from "../utils/error.js";
 import cloudinary from "cloudinary";
 
 
@@ -23,7 +22,9 @@ export const register = async (req, res, next) => {
     try {
         if (req.body.image) {
             await cloudinary.v2.uploader
-                .upload(req.body.image,)
+                .upload(req.body.image,{
+                    folder: 'booking'
+                })
                 .then((res) => {
                     imageUrl = res.url
                     imageId = res.public_id
