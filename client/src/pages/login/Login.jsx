@@ -5,12 +5,22 @@ import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import backG from '../../images/back.jpeg'
 import { Link } from "react-router-dom";
+import { HiEye, HiEyeOff } from 'react-icons/hi';
 
 const Login=()=>{
     const [username, setUsername] = useState(undefined)
     const [password, setPassword] = useState(undefined)
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate();
+    const [passwordType, setPasswordType] = useState("password");
+
+    const togglePassword = () => {
+        if (passwordType === "password") {
+            setPasswordType("text")
+            return;
+        }
+        setPasswordType("password")
+    }
     
     const forward = ()=>{
         const user = JSON.parse(localStorage.getItem("user"));
@@ -72,7 +82,10 @@ const Login=()=>{
                 </div>
                 <div className="loginEdit">
                     <label>Password</label>
-                    <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="*********"/>
+                    <div style={{ position: 'relative', height: '40px', width: '200px', borderRadius: '5px', padding: '2px', backgroundColor: 'white' }}>
+                            <input type={passwordType} style={{paddingRight: '7px', border: 'none', height: '100%', }} placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
+                            {passwordType === "password" ? <HiEye style={{position: 'absolute', color: 'black', right: '10px', top: '15px', bottom: '15px'  }} onClick={togglePassword} /> : <HiEyeOff style={{position: 'absolute', color: 'black', right: '10px', top: '15px', bottom: '15px'  }} onClick={togglePassword} />}
+                        </div>
                 </div>
                 <button type="submit" disabled={loading}>{loading ? 'Loading...' : 'Login'}</button>
             </form>

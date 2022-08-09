@@ -47,6 +47,12 @@
     border: none;
     border-radius: 5px;
     width: 200px;
+
+}
+.sign-input>input:focus{
+    outline: none;
+    outline-width: 0px;
+    outline-color: transparent;
 }
 .sign-items>button{
     margin-top: 50px;
@@ -56,4 +62,11 @@
     color: #003580;
     border: none;
     cursor: pointer;
+}
+.eye{
+    position: absolute;
+    
+}
+.login{
+    color: white;
 }
