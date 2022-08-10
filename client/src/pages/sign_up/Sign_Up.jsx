@@ -98,7 +98,7 @@ export default function SignUp() {
                     <div className='img-container'>
                         {image == null ? <div className='img'>
                         </div> : <img src={image} alt=" Profile pic" className='img' />}
-                        <input type="file" onChange={handleImage} /></div>
+                        <input type="file" onChange={handleImage}  /></div>
                     <div className='sign-input'>
                         <span>Username</span>
                         <input type="text" placeholder='Username' onChange={(e) => setUsername(e.target.value)} /></div>

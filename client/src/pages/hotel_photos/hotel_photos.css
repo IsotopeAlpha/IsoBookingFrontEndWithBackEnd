@@ -1,0 +1,37 @@
+.pho {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  background-color: #003580;
+  padding: 30px 10px;
+  gap: 20px;
+  width: 100%;
+  max-width: 500px;
+  align-items: center;
+  border-radius: 5px;
+  color: white;
+}
+.pho > button {
+  margin-top: 50px;
+  width: 100px;
+  padding: 10px;
+  background-color: white;
+  color: #003580;
+  border: none;
+  cursor: pointer;
+}
+
+.img {
+  width: 100px;
+  height: 120px;
+  background-color: white;
+}
+.img-container {
+  display: flex;
+  gap: 10px;
+  margin: auto;
+  align-items: center;
+  width: 80%;
+  flex-wrap: wrap;
+  justify-content: safe;
+}

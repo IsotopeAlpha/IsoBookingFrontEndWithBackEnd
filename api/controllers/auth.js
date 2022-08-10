@@ -17,7 +17,7 @@ console.log(cloudinary.config());
 
 export const register = async (req, res, next) => {
     let imageUrl = "";
-    let imageId = ""
+    let imageId = "";
 
     try {
         if (req.body.image) {
